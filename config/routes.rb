@@ -32,4 +32,10 @@ Rails.application.routes.draw do
   get 'how_it_works/index'
   get 'about/index'
   get 'home_page/index'
+  get "/stations/:id", to: "stations#show", as: :station
+  get "/bikes", to: "bikes#index"
+  get "/bikes/:id", to: "bikes#show", as: :bike
+
+  get "about", to: "main#about"
+  get"/stations", to: "stations#index"
 end
