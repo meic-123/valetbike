@@ -1,8 +1,20 @@
 Rails.application.routes.draw do
+ # get 'access/menu'
+ # get 'access/new'
+ # get 'access/create'
+ # get 'access/destroy'
   root "home_page#index"
 
+get 'menu'=> 'access#menu'
+get 'login'=> 'access#new'
+delete 'logout' => 'access#destroy'
+resource :access, controller: 'access', only:[:new, :create, :destroy] do
+  member do
+    get :menu
+  end
+end
 
-  match 'home_page', to: "home_page#index", via: :get
+  match 'home', to: "home_page#index", via: :get
   match 'edit_current_trip', to: "edit_current_trip#index", via: :get
   match 'report_a_problem', to: "report_a_problem#index", via: :get
   match 'help', to: "help#index", via: :get
@@ -13,7 +25,7 @@ Rails.application.routes.draw do
   match 'trip_planning', to: "trip_planning#index", via: :get
   match 'payment_information', to: "payment_information#index", via: :get
   match 'account', to: "account#index", via: :get
-  match 'login_sign_up', to: "login_sign_up#index", via: :get
+  match 'login_sign_up', to: "access#new", via: :get
   match 'membership_plans', to: "membership_plans#index", via: :get
   match 'how_it_works', to: "how_it_works#index", via: :get
   match 'about', to: "about#index", via: :get
@@ -33,5 +45,4 @@ Rails.application.routes.draw do
   get 'how_it_works/index'
   get 'about/index'
   get 'home_page/index'
-  get 'contact_us/index'
 end
