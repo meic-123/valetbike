@@ -26,23 +26,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_09_205324) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "favorites", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.integer "num_of_trip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "memberships", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "rate"
     t.integer "rentlength"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reports", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.text "description"
-    t.datetime "reported_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

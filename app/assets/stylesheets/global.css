@@ -102,5 +102,42 @@ footer a:hover {
   text-decoration: underline; /* Underline the links on hover */
 }
 
+h2 {
+  font-size: 48px;
+  font-weight: bold;
+  text-align: center
+}
+h3 {
+  font-size: 35px;
+  font-weight: bold
+}
+.about-us {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px
+}
+.column {
+  float: left;
+  width: 50%;
+  padding-right: 40px;
+  padding-left: 40px;
+  padding-top: 40px
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.budget-friendly{
+  padding-bottom: 20px
+}
+.button {
+  background-color: #9698fc;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 16px;
+  padding: 14px 40px;
+}
+
 
 
