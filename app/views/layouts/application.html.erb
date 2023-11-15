@@ -24,7 +24,12 @@
                   <li><a href="how_it_works.html">How It Works</a></li>
                   <li><a href="map.html">Map</a></li>
                   <li><a href="membership_plans.html">Membership Plans</a></li>
-                  <li><a href="login_sign_up.html">Login</a></li>
+                  <li>
+                  <% if user_signed_in? %> 
+                   <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
+                 <% else %>
+                   <%= button_to "Sign in", new_user_session_path %> 
+                 <% end %></li>
           </ul>
         </nav>
       </header>
