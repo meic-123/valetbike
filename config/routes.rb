@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
  # get 'access/menu'
  # get 'access/new'
  # get 'access/create'
