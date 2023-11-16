@@ -12,5 +12,11 @@ class HomePageController < ApplicationController
 
   def about
   end
+
+  def howitworks
+  end
+
+  def contactus
+  end
   
 end
