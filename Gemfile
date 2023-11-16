@@ -77,8 +77,6 @@ end
 # Developer Added Gems
 gem 'dotenv-rails'
 
-gem 'mapbox-gl-rails'
-
 # Suggested Potentially Useful Gems
  gem 'devise'
 # gem 'httparty'
