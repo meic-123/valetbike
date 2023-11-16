@@ -18,5 +18,8 @@ class HomePageController < ApplicationController
 
   def contactus
   end
+
+  def membership
+  end
   
 end

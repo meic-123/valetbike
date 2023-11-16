@@ -19,11 +19,11 @@
       <header>
         <nav>
           <ul>
-                  <li><a href="home_page.html">Home</a></li>
+                  <li><%= link_to "Home", "/", :class =>"btn btn-primary"%></li>
                   <li><%= link_to "About", "/about", :class =>"btn btn-primary"%></li>
                   <li><%= link_to "How it Works", "/howitworks", :class =>"btn btn-primary"%></li>
                   <li><%= link_to "Map", "/map", :class =>"btn btn-primary"%></li>
-                  <li><a href="membership_plans.html">Membership Plans</a></li>
+                  <li><%= link_to "Membership Plans", "/membership", :class =>"btn btn-primary"%></li>
                   <li>
                   <% if user_signed_in? %> 
                    <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
