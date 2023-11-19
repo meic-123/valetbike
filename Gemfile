@@ -85,3 +85,5 @@ gem 'mapbox-gl-rails'
 # gem 'paperclip
 # gem 'uniquify'
 # gem 'will_paginate'
+
+
