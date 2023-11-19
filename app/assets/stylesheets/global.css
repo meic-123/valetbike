@@ -41,6 +41,13 @@ header {
   padding: 10px; /* Padding around the header content */
   width: 100%; /* Make the header take up the whole width */
   margin: 0; /* Remove default margin */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  margin-right: 20px; /* Adjust the margin as needed */
 }
 
 /* Style the navigation links */
@@ -49,6 +56,9 @@ header nav ul {
   padding: 20px 0;
   margin: 0;
   text-align: right; /* Align the links to the right */
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
 }
 
 header nav ul li {
