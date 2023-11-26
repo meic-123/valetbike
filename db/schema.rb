@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_15_172540) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_19_191513) do
   create_table "bikes", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.integer "identifier"
     t.integer "current_station_id"
@@ -47,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_15_172540) do
     t.string "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "capacity"
+    t.integer "capacity", default: 10
     t.float "latitude"
     t.float "longitude"
   end
@@ -82,6 +82,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_15_172540) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "stripe_customer_id"
+    t.string "plan"
+    t.string "subscription_status"
+    t.datetime "subscription_ends_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

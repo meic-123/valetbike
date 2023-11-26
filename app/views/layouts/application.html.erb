@@ -15,24 +15,35 @@
   <body>
     <div id="site-container" class="flexbox vertical stretch flex-1">
 
-      <!-- Common header -->
-      <header>
-        <nav>
-          <ul>
-                  <li><%= link_to "Home", "/", :class =>"btn btn-primary"%></li>
-                  <li><%= link_to "About", "/about", :class =>"btn btn-primary"%></li>
-                  <li><%= link_to "How it Works", "/howitworks", :class =>"btn btn-primary"%></li>
-                  <li><%= link_to "Map", "/map", :class =>"btn btn-primary"%></li>
-                  <li><%= link_to "Membership Plans", "/membership", :class =>"btn btn-primary"%></li>
-                  <li>
-                  <% if user_signed_in? %> 
-                   <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-                 <% else %>
-                   <%= button_to "Sign in", new_user_session_path %> 
-                 <% end %></li>
-          </ul>
-        </nav>
-      </header>
+    <!-- Common header -->
+    <header class="flex justify-between items-center p-4 bg-gray-800 text-white">
+      <!-- Logo Placeholder Button -->
+      <div>
+        <%= link_to "/", class: "logo-btn" do %>
+          <%= image_tag("logo.png", alt: "ValetBike Logo", class: "logo-img", style: "width: 200px; height: auto; margin-top: 0px;") %>
+        <% end %>
+      </div>
+    
+      <!-- Navigation Links -->
+      <nav>
+        <ul class="flex space-x-4">
+        
+          <li><%= link_to "Home", "/", class: "btn btn-primary" %></li>
+          <li><%= link_to "About", "/about", class: "btn btn-primary" %></li>
+          <li><%= link_to "How it Works", "/howitworks", class: "btn btn-primary" %></li>
+          <li><%= link_to "Map", "/map", class: "btn btn-primary" %></li>
+          <li><%= link_to "Membership Plans", "/membership", class: "btn btn-primary" %></li>
+          <li>
+            <% if user_signed_in? %> 
+              <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %> 
+            <% else %>
+              <%= button_to "Sign in", new_user_session_path, class: "btn btn-success" %> 
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    
 
       <div class="flexbox vertical center">
       <p class="notice"><%= notice %></p> 
