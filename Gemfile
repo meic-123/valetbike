@@ -87,3 +87,5 @@ gem 'mapbox-gl-rails'
 # gem 'will_paginate'
 
 
+
+gem "stripe", "~> 10.1"

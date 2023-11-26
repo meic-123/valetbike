@@ -1,0 +1,31 @@
+<div>
+<div>
+<h2>Start at $10/day </h2>
+    <h3 style="font-weight: normal">
+        Whether you are a student or a full-time worker, there is a plan for you.
+    </h3>
+</div>
+<div class="row">
+    <div class="column" style="width: 33.33%">
+        <h4 style="font-weight:bold; text-align:center"><%= @prices[0].product.name %></h4>
+        <h2 style="text-align: center">$<%= @prices[0].unit_amount/100 %>/<%= @prices[0].recurring.interval %> </h2>
+        
+        <%= button_to 'Subscribe', stripe_checkout_path(price_id: @prices[0].id), data: {turbo: 'false'}, style: "background-color: #9698fc; color: white; border-radius: 5px; padding: 10px 20px; align-items: center; justify-content: center" %>
+    </div>
+
+    <div class="column" style="width: 33.33%">
+        <h4 style="font-weight:bold; text-align:center"><%= @prices[1].product.name %></h4>
+        <h2>$<%= @prices[1].unit_amount/100 %>/<%= @prices[1].recurring.interval %> </h2>
+        <%= button_to 'Subscribe', stripe_checkout_path(price_id: @prices[1].id), data: {turbo: 'false'}, style: "background-color: #9698fc; color: white; border-radius: 5px; padding: 10px 20px;" %>
+    </div>
+
+    <div class="column" style="width: 33.33%">
+        <h4 style="font-weight:bold; text-align:center"><%= @prices[2].product.name %></h4>
+        <h2>$<%= @prices[2].unit_amount/100 %>/<%= @prices[2].recurring.interval %> </h2>
+        
+        <%= button_to 'Subscribe', stripe_checkout_path(price_id: @prices[2].id), data: {turbo: 'false'}, style: "background-color: #9698fc; color: white; border-radius: 5px; padding: 10px 20px;" %>
+    </div>
+</div>
+</div>
+
+

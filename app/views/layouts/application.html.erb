@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:og="http://ogp.me/ns#" xmlns:fb="http://www.facebook.com/2008/fbml" xml:lang="en">
   <head>
@@ -16,7 +17,7 @@
     <div id="site-container" class="flexbox vertical stretch flex-1">
 
     <!-- Common header -->
-    <header class="flex justify-between items-center p-4 bg-gray-800 text-white">
+    <header class="flex justify-between items-center bg-gray-800 text-white">
       <!-- Logo Placeholder Button -->
       <div>
         <%= link_to "/", class: "logo-btn" do %>
@@ -35,6 +36,8 @@
           <li><%= link_to "Membership Plans", "/membership", class: "btn btn-primary" %></li>
           <li>
             <% if user_signed_in? %> 
+            
+
               <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %> 
             <% else %>
               <%= button_to "Sign in", new_user_session_path, class: "btn btn-success" %> 

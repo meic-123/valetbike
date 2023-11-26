@@ -133,6 +133,7 @@ h3 {
   padding-left: 40px;
   padding-top: 40px
 }
+
 .row:after {
   content: "";
   display: table;
@@ -148,6 +149,9 @@ h3 {
   font-size: 16px;
   padding: 14px 40px;
 }
+
+
+
 
 
 
