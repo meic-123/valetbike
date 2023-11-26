@@ -17,7 +17,11 @@
     <div id="site-container" class="flexbox vertical stretch flex-1">
 
     <!-- Common header -->
+<<<<<<< HEAD
     <header class="flex justify-between items-center bg-gray-800 text-white">
+=======
+    <header class="flex justify-between items-center p-4 bg-gray-800 text-white">
+>>>>>>> d1a4bd2ef4b39ba0e04a5e785fd9be1e17173735
       <!-- Logo Placeholder Button -->
       <div>
         <%= link_to "/", class: "logo-btn" do %>
@@ -36,8 +40,6 @@
           <li><%= link_to "Membership Plans", "/membership", class: "btn btn-primary" %></li>
           <li>
             <% if user_signed_in? %> 
-            
-
               <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %> 
             <% else %>
               <%= button_to "Sign in", new_user_session_path, class: "btn btn-success" %> 
