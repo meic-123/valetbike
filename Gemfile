@@ -78,6 +78,7 @@ end
 gem 'dotenv-rails'
 
 gem 'mapbox-gl-rails'
+gem "mapkick-rb"
 
 # Suggested Potentially Useful Gems
  gem 'devise'
