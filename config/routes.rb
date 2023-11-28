@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   get 'howitworks', to: 'home_page#howitworks'
   get 'about', to: 'home_page#about'
   get 'contactus', to: 'home_page#contactus'
-  get 'map', to: 'active_trip#map'
+  get 'base_map', to: 'active_trip#base_map'
+  get 'rent_map', to: 'active_trip#rent_map'
+  get 'return_map', to: 'active_trip#return_map'
   get "/stations/:id", to: "stations#show", as: :station
   get "/bikes", to: "bikes#index"
   get "/bikes/:id", to: "bikes#show", as: :bike

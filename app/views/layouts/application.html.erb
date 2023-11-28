@@ -34,7 +34,17 @@
           <li><%= link_to "Home", "/", class: "btn btn-primary" %></li>
           <li><%= link_to "About", "/about", class: "btn btn-primary" %></li>
           <li><%= link_to "How it Works", "/howitworks", class: "btn btn-primary" %></li>
-          <li><%= link_to "Map", "/map", class: "btn btn-primary" %></li>
+          <li>
+            <% if user_signed_in? %> 
+              <% if false %> 
+                <%= link_to "Rent A Bike", "/rent_map", class: "btn btn-primary" %>
+              <% else %>
+                <%= link_to "Return Bike", "/return_map", class: "btn btn-primary" %>
+              <% end %>
+            <% else %>
+              <%= link_to "Map", "/base_map", class: "btn btn-primary" %>
+            <% end %>
+          </li>
           <li><%= link_to "Membership Plans", "/membership", class: "btn btn-primary" %></li>
           <li>
             <% if user_signed_in? %> 
