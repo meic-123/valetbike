@@ -24,5 +24,8 @@ class ActiveTripController < ApplicationController
     else
       @stations = Station.all.order(identifier: :asc)
     end
+    
+  def return
+    end
   end
 end

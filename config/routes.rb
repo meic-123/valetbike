@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   get 'past_trips/index'
   get 'active_trip/index'
+  get 'active_trip/return'
+  get 'return', to: 'active_trip#return'
   get 'payment_information/index'
   get 'account/index'
   # get 'membership', to: 'home_page#membership'
