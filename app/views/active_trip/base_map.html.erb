@@ -13,9 +13,9 @@
         <style>
             #map { 
             position: absolute; 
-            top: 10%;
+            top: 13.5%;
             bottom: 10%; 
-            width: 100%; 
+            width: 80%; 
             }
             .mapboxgl-popup {
             max-width: 200px;
@@ -28,16 +28,16 @@
         </style>
     </head>
     <body>
-
-    <div id="map"></div>
-
+    <div class="flexbox vertical center">
+        <div id="map"></div>
+    </div>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpeWF0aHVyYWkiLCJhIjoiY2xwMDdpdWZuMDQwejJqbGU5dmIyYWN0dCJ9.2L9gQhZh6Kz-dPjXCmqwMg';
         var map = new mapboxgl.Map({
         container: 'map', // container ID
         style: 'mapbox://styles/mapbox/streets-v12', // style URL
         center: [-72.64, 42.325], // starting position [lng, lat]
-        zoom: 11.5 // starting zoom
+        zoom: 12.5 // starting zoom
     });
     
     <% @stations.each do |station| %>
