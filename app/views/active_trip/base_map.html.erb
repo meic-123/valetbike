@@ -7,30 +7,20 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans"rel="stylesheet"/>
         <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
         <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
-
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
 
-        <style>
-            #map { 
-            position: absolute; 
-            top: 13.5%;
-            bottom: 10%; 
-            width: 80%; 
-            }
-            .mapboxgl-popup {
-            max-width: 200px;
-            }
-            .mapboxgl-popup-content {
-            text-align: center; 
-            font-family: 'Open Sans', 
-            sans-serif;
-            }
-        </style>
+        <%= stylesheet_link_tag "map" %>
+
     </head>
     <body>
-    <div class="flexbox vertical center">
+        <div class="flexbox horizontal">
+        <div id="infobox">
+            <h3 style="text-align: center">We have _ number of stations around the pioneer valley 
+            with _ number of bikes availble</h3>
+            <%= button_to "Rent One Now", new_user_session_path, class: "btn btn-success", style: "background-color: #9698fc; color: white; border-radius: 5px; padding: 10px 20px; align-items: center; justify-content: center" %>
+        </div>
         <div id="map"></div>
-    </div>
+        </div>
     <script>
         mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpeWF0aHVyYWkiLCJhIjoiY2xwMDdpdWZuMDQwejJqbGU5dmIyYWN0dCJ9.2L9gQhZh6Kz-dPjXCmqwMg';
         var map = new mapboxgl.Map({
