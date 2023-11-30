@@ -10,34 +10,49 @@
 
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
 
-        <style>
-            #map { 
-            position: absolute; 
-            top: 10%;
-            bottom: 10%; 
-            width: 100%; 
-            }
-            .mapboxgl-popup {
-            max-width: 200px;
-            }
-            .mapboxgl-popup-content {
-            text-align: center; 
-            font-family: 'Open Sans', 
-            sans-serif;
-            }
-        </style>
+        <%= stylesheet_link_tag "map" %>
+        
     </head>
     <body>
 
-    <div id="map"></div>
+        <div id="sidebar">
+            <div id="leftmenuinnerinner">
+            <h2>Stations</h2>
+            <div class="accordion">
+            <% if @stations.present? %>
+                <ul>
+                    <% @stations.each do |station| %>
+                    <li>
+                        <div>
+                            <input type="checkbox" id=<%= station.name%> class="accordion__input">
+                            <label for=<%= station.name%> class="accordion__label"><%= station.name%></label>
+                            <div class="accordion__content">
+                            <h3><%=station.name%></h3>
+                            <p>Docked Bike Count: <%=station.docked_bikes.count%></p>
+                            <p><%=(station.capacity - station.docked_bikes.count)%> Open Slots </p>
+                            </div>
+                        </div>
+                    </li>
+                    <% end %>
+                </ul>
+        
+            <% else %>
+                <a target="_top" href="#">No Stations right now</a>
+             <% end %>
+            </div>
+            </div>
+        </div>
+
+        <div id="map"></div>
 
     <script>
-        mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpeWF0aHVyYWkiLCJhIjoiY2xwMDdpdWZuMDQwejJqbGU5dmIyYWN0dCJ9.2L9gQhZh6Kz-dPjXCmqwMg';
-        var map = new mapboxgl.Map({
-        container: 'map', // container ID
-        style: 'mapbox://styles/mapbox/streets-v12', // style URL
-        center: [-72.64, 42.325], // starting position [lng, lat]
-        zoom: 11.5 // starting zoom
+
+    mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpeWF0aHVyYWkiLCJhIjoiY2xwMDdpdWZuMDQwejJqbGU5dmIyYWN0dCJ9.2L9gQhZh6Kz-dPjXCmqwMg';
+    var map = new mapboxgl.Map({
+    container: 'map', // container ID
+    style: 'mapbox://styles/mapbox/streets-v12', // style URL
+    center: [-72.64, 42.325], // starting position [lng, lat]
+    zoom: 11.5 // starting zoom
     });
     
     <% @stations.each do |station| %>
