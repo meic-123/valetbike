@@ -1,4 +1,6 @@
 class Stripe::CheckoutController < ApplicationController
+    
+    before_action :require_login
     def pricing 
         lookup_keys = %w[monthly daily student]
         @prices = Stripe::Price.list(lookup_keys: lookup_keys, active: true, expand: ['data.product']).data.sort_by(&:unit_amount)
@@ -28,4 +30,8 @@ end
     flash[:alert] = 'failure'
     redirect_to membership_path
   end 
+
+  private 
+  def require_login
+    unless log
 end 
