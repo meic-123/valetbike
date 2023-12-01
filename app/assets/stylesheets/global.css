@@ -125,7 +125,8 @@ h3 {
 .about-us {
   padding-left: 40px;
   padding-right: 40px;
-  padding-bottom: 40px
+  padding-bottom: 40px;
+  margin-bottom: 40px;
 }
 .column {
   float: left;
@@ -168,5 +169,13 @@ h3 {
 }
 
 
+a .pretty_button {
+background-color: #9698fc; 
+color: white; 
+border-radius: 5px; 
+padding: 10px 20px; 
+align-items: center; 
+justify-content: center
+}
 
 
