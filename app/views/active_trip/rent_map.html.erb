@@ -24,7 +24,7 @@
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v12', // style URL
     center: [-72.64, 42.325], // starting position [lng, lat]
-    zoom: 11.5 // starting zoom
+    zoom: 13.5 // starting zoom
     });
 
     </script>
@@ -36,29 +36,31 @@
             <% if @stations.present? %>
                 <ul>
                     <% @stations.each do |station| %>
-                        <script>
-                            new mapboxgl.Marker({color: 'orange'})
-                            .setLngLat([<%= station.longitude %>, <%= station.latitude %>])
-                            .setPopup(
-                            new mapboxgl.Popup({ offset: 25 }) 
-                            .setHTML("<h4><%=station.name%></h4><p><%=station.address%></p>")
-                            )   
-                            .addTo(map); 
-                        </script>
+                        <% if station.docked_bikes.count != 0%>
+                            <script>
+                                new mapboxgl.Marker({color: 'orange'})
+                                .setLngLat([<%= station.longitude %>, <%= station.latitude %>])
+                                .setPopup(
+                                new mapboxgl.Popup({ offset: 25 }) 
+                                .setHTML("<h4><%=station.name%></h4><p><%=station.address%></p>")
+                                )   
+                                .addTo(map); 
+                            </script>
 
-                        <li>
-                            <div>
-                                <input type="checkbox" id=<%= station.id%> class="accordion__input">
-                                <label for=<%= station.id%> class="accordion__label"><%= station.name%></label>
-                                <div class="accordion__content">
-                                <h4><%=station.name%></h4>
-                                <p>Docked Bike Count: <%=station.docked_bikes.count%></p>
-                                <p><%=(station.capacity - station.docked_bikes.count)%> Open Slots </p>
-                                <%= link_to "Rent a Bike", "/", class: "btn btn-success", style: "background-color: #9698fc; color: white; border-radius: 5px; padding: 5px 10px; justify-content: center; margin: 5px 0px;"%>
+                            <li>
+                                <div>
+                                    <input type="checkbox" id=<%= station.id%> class="accordion__input">
+                                    <label for=<%= station.id%> class="accordion__label"><%= station.name%></label>
+                                    <div class="accordion__content">
+                                    <h4><%=station.name%></h4>
+                                    <p>Docked Bike Count: <%=station.docked_bikes.count%></p>
+                                    <p><%=(station.capacity - station.docked_bikes.count)%> Open Slots </p>
+                                    <%= link_to "Rent a Bike", "/", class: "btn btn-success"%>
+                                    <%= button_to "Rent A Bike", destroy_user_session_path, method: :post, class: "btn btn-success" %>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-
+                            </li>
+                        <% end %>
                     <% end %>
                 </ul>
         
