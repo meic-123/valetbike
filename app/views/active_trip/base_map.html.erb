@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+        <title>Display a map on a webpage</title>
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans"rel="stylesheet"/>
+        <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.js'></script>
+        <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.9.2/mapbox-gl.css' rel='stylesheet' />
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+
+        <%= stylesheet_link_tag "map" %>
+
+    </head>
+    <body>
+        <div class="flexbox horizontal">
+        <div id="sidebar">
+            <h3 style="text-align: center">We have _ number of stations around the pioneer valley 
+            with _ number of bikes availble</h3>
+            <%= button_to "Rent One Now", new_user_session_path, class: "btn btn-success", style: "background-color: #9698fc; color: white; border-radius: 5px; padding: 10px 20px; align-items: center; justify-content: center" %>
+        </div>
+        <div id="map"></div>
+        </div>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpeWF0aHVyYWkiLCJhIjoiY2xwMDdpdWZuMDQwejJqbGU5dmIyYWN0dCJ9.2L9gQhZh6Kz-dPjXCmqwMg';
+        var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v12', // style URL
+        center: [-72.64, 42.325], // starting position [lng, lat]
+        zoom: 12.5 // starting zoom
+    });
+    
+    <% @stations.each do |station| %>
+        new mapboxgl.Marker({color: 'orange'})
+        .setLngLat([<%= station.longitude %>, <%= station.latitude %>])
+        .setPopup(
+        new mapboxgl.Popup({ offset: 25 }) 
+        .setHTML("<h3><%=station.name%></h3><p>Docked Bike Count: <%=station.docked_bikes.count%></p><p><%=(station.capacity - station.docked_bikes.count)%> Open Slots </p>")
+        )   
+    .addTo(map); 
+    <%end%> 
+    </script>
+    </body>
+</html>
