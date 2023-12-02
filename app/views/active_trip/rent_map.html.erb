@@ -56,7 +56,6 @@
                                     <p>Docked Bike Count: <%=station.docked_bikes.count%></p>
                                     <p><%=(station.capacity - station.docked_bikes.count)%> Open Slots </p>
                                     <%= link_to "Rent a Bike", "/", class: "btn btn-success"%>
-                                    <%= button_to "Rent A Bike", destroy_user_session_path, method: :post, class: "btn btn-success" %>
                                     </div>
                                 </div>
                             </li>
