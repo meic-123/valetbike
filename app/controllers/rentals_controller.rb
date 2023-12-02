@@ -10,7 +10,6 @@ class RentalsController < ApplicationController
       @rental.save
 
       @bike.avail = false
-      @bike.identifier = current_user.id
       @bike.save
       
       if @rental.save
