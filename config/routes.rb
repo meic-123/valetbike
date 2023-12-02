@@ -28,5 +28,6 @@ Rails.application.routes.draw do
   get "/bikes/:id", to: "bikes#show", as: :bike
 
   get"/stations", to: "stations#index"
+  get "/rentals/:id", to: "rentals#rent", as: :rental
 end
 
