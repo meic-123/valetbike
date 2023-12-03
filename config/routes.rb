@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   get 'past_trips/index'
   get 'active_trip/index'
   get 'active_trip/return'
-  get 'return', to: 'active_trip#return'
+  # get 'return', to: 'active_trip#return'
   get 'payment_information/index'
   get 'account/index'
   # get 'membership', to: 'home_page#membership'
@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   get "/bikes/:id", to: "bikes#show", as: :bike
 
   get"/stations", to: "stations#index"
-  get "/rentals/:id", to: "rentals#rent", as: :rental
+  get "/rentals/:id", to: "rentals#rent", as: :rental 
+  get "/rentals/", to: "rentals#show"
+  # get "/return", to: "rentals#index"
+  get "stations/return/:id", to: "stations#return", as: :station_return
 end
 
