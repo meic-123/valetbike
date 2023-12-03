@@ -1,5 +1,5 @@
 <h1><b>Bike ID: </b> <%= @bike.identifier %></h1>
-<h1><b>Current Station: </b> <%= @bike.current_station.blank? ? "In use" : "Docked (#{@bike.current_station.address})" %></h1>
+<h1><b>Current Station: </b> <%= @bike.avail? ? "Docked (#{@bike.current_station.address})" : "In use" %></h1>
 <% if @bike.avail %>
 <%= button_to 'Rent', rental_path(bike_id: @bike.id), method: :get %>
 <% end %>

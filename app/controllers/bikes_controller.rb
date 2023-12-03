@@ -1,6 +1,7 @@
 class BikesController < ApplicationController
     def index
-        @bikes = Bike.all.order(identifier: :asc)
+        @bikes = Bike.where(current_station_id: @station.id)
+    
     end
 
     def show

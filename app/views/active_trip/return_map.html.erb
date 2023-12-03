@@ -55,7 +55,7 @@
                                     <h4><%=station.name%></h4>
                                     <p>Docked Bike Count: <%=station.docked_bikes.count%></p>
                                     <p><%=(station.capacity - station.docked_bikes.count)%> Open Slots </p>
-                                    <%= link_to "Return Bike", "/", class: "btn btn-success", style: "background-color: #9698fc; color: white; border-radius: 5px; padding: 5px 10px; justify-content: center; margin: 5px 0px;"%>
+                                    <%= link_to "Return Bike", station_return_path(id: station.id), class: "btn btn-success", style: "background-color: #9698fc; color: white; border-radius: 5px; padding: 5px 10px; justify-content: center; margin: 5px 0px;"%>
                                     </div>
                                 </div>
                             </li>
