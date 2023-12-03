@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {registrations: 'users/registrations'}
   root "home_page#index"
 
   # stripe listen --forward-to localhost:4242/stripe/webhooks

@@ -1,3 +1,4 @@
+
 class RentalsController < ApplicationController
   def rent
     if current_user.active_bike != nil
@@ -51,3 +52,4 @@ class RentalsController < ApplicationController
   end
 
 end
+
