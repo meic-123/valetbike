@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
     belongs_to :membership, class_name: :Membership, foreign_key: :membership_id, optional: true
     
-    has_many :trips, class_name: :Trip, foreign_key: :user_id
+    has_many :rentals, class_name: :Rental, foreign_key: :user_id
   
   after_create do 
     stripe_customer = Stripe::Customer.create(email: email)

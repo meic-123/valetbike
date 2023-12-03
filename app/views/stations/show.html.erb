@@ -1,3 +1,9 @@
-<h1><b>Name: </b> <%= @station.name %></h1>
-<h2><b>Address:</b> <%= @station.address %></h2>
-<h2><b>Number of docked bikes: </b><%= @station.docked_bikes.count %></h2>
+<ul>
+  <% @curr_bikes.each do |bike| %>
+  <% if bike.avail %>
+    <li>
+      Bike ID: <%= link_to bike.identifier, bike %>
+    </li>
+<% end %>
+  <% end %>
+</ul>
