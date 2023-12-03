@@ -136,6 +136,12 @@ h3 {
   padding-top: 40px
  }
 
+ .three-column {
+  float: left;
+  width: 33.33%;
+  padding: 100px;
+ }
+
 .row:after {
   content: "";
   display: table;
