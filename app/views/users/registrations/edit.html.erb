@@ -9,8 +9,8 @@
   </div>
 
   <div class="field">
-  <%= f.label :'Date of Birth' %><br />
-  <%= f.text_field :dob %>
+  <%= f.label :dob, "Date of Birth" %><br />
+  <%= f.date_field :dob %>
   </div>
 
   <div class="field">
@@ -42,7 +42,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Update" %>
+   <%= f.submit :Update, class: 'button' %>
   </div>
 <% end %>
 
