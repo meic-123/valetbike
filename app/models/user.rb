@@ -4,14 +4,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-    belongs_to :membership, class_name: :Membership, foreign_key: :membership_id, optional: true
     
+    has_many :memberships, dependent: :destroy
     has_many :rentals, class_name: :Rental, foreign_key: :user_id
   
-  after_create do 
-    stripe_customer = Stripe::Customer.create(email: email)
-    # stripe_customer_id = stripe_customer.id 
-    # update(stripe_customer_id: stripe_customer_id)
-  end
+  def subscribed?
+    memberships.where(status: 'active').any?
+  end 
+  
 end
+
+

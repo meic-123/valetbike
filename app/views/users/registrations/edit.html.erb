@@ -9,7 +9,7 @@
   </div>
 
   <div class="field">
-  <%= f.label :Date of Birth %><br />
+  <%= f.label :'Date of Birth' %><br />
   <%= f.text_field :dob %>
   </div>
 
@@ -46,6 +46,11 @@
   </div>
 <% end %>
 
+<% if current_user.subscribed? %>
+<div>
+  <%= button_to "Manage billing", billings_path, data: { turbo: false } %>
+</div>
+<% end %>
 <h3>Cancel my account</h3>
 
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>

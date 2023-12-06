@@ -1,0 +1,40 @@
+<div>
+<div>
+<h2>Start at $10/day </h2>
+    <h3 style="font-weight: normal">
+        Whether you are a student or a full-time worker, there is a plan for you.
+    </h3>
+</div>
+<div class="grid grid-cols-3 gap-4">
+    <% if user_signed_in? && !current_user.subscribed? %>
+    <%= form_tag purchase_checkouts_path, method: :post, data: { turbo: false } do %>
+    <input type="hidden" name="price_id" value="price_1OJqUHICIuTjDUZ9JZI66sFc" />
+    <input type="submit" value="Subscribe for $50/week" class="px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" />
+    <% end %>
+
+    <%= form_tag purchase_checkouts_path, method: :post, data: { turbo: false } do %>
+    <input type="hidden" name="price_id" value="price_1OJqUHICIuTjDUZ9vZog2ZAC" />
+    <input type="submit" value="Subscribe for $30/month" class="px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" />
+    <% end %>
+
+    <%= form_tag purchase_checkouts_path, method: :post, data: { turbo: false } do %>
+    <input type="hidden" name="price_id" value="price_1OJqUHICIuTjDUZ9AZhQ5yF2" />
+    <input type="submit" value="Subscribe for $10/day" class="px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" />
+    <% end %>
+
+    <% elsif user_signed_in? && current_user.subscribed? %>
+    <div class="bg-yellow-100 p-6 rounded-lg text-center text-yellow-900 col-span-2">
+        <p>You are already subscribed.</p>
+        <%= button_to "Manage your subscription", billings_path, data: { turbo: false }, class: "underline" %>
+      </div>
+
+    <% else %>
+    <%= link_to "Subscribe for $50/week", new_user_session_path, class: "px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" %>
+        <%= link_to "Subscribe for $30/month", new_user_session_path, class: "px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" %>
+    <%= link_to "Subscribe for $10/day", new_user_session_path, class: "px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" %>
+
+    <% end %>
+
+</div>
+</div>
+
