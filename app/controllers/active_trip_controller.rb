@@ -28,4 +28,12 @@ class ActiveTripController < ApplicationController
   def return
     end
   end
+
+  def testing
+    if params[:station].present?
+      @stations = Station.near(params[:station])
+    else
+      @stations = Station.all.order(identifier: :asc)
+    end
+  end
 end
