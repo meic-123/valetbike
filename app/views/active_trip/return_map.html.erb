@@ -29,36 +29,45 @@
 
     </script>
 
-        <div id="sidebar">
-            <div id="leftmenuinnerinner">
-            <h2>Stations</h2>
-            <div class="accordion">
-            <% if @stations.present? %>
-                <ul>
-                    <% @stations.each do |station| %>
-                        <% if (station.capacity - station.docked_bikes.count) != 0%>
+    <div id="sidebar">
+    <div id="leftmenuinnerinner">
+    <h2>Stations</h2>
+    <div class="accordion">
+    <% if @stations.present? %>
+        <ul >
+            <% @stations.each do |station| %>
+                <% if station.docked_bikes.count != 0%>
+                <li>
+                    <div>
+                        <input type="checkbox" id=<%= station.id%> class="accordion__input">
+                        <label for=<%= station.id%> class="accordion__label" onclick= "yolo('<%=station.name%>', '<%= station.longitude%>', '<%= station.latitude %>', '<%=station.address%>')"><%= station.name%></label>
+                        <div class="accordion__content">
+                            <h4><%=station.name%></h4>
+                            <p>Docked Bike Count: <%=station.docked_bikes.count%></p>
+                            <p><%=(station.capacity - station.docked_bikes.count)%> Open Slots </p>
+                            <%= link_to "Return Bike", station_return_path(id: station.id), class: "btn btn-success", style: "background-color: #9698fc; color: white; border-radius: 5px; padding: 5px 10px; justify-content: center; margin: 5px 0px;"%>
+                            </div>
+                            </div>
+                        </li>
+        
                             <script>
-                                new mapboxgl.Marker({color: 'orange'})
+                                new mapboxgl.Marker({color: '#9698fc'})
                                 .setLngLat([<%= station.longitude %>, <%= station.latitude %>])
                                 .setPopup(
                                 new mapboxgl.Popup({ offset: 25 }) 
-                                .setHTML("<h4><%=station.name%></h4><p><%=station.address%></p>")
+                                .setHTML("<h4><%=station.name%></h4>")
                                 )   
                                 .addTo(map); 
+        
+                                var popup = new mapboxgl.Popup({offset: 25 });
+        
+                                function yolo(name, lat, long, address) {
+                                    popup.setLngLat([lat, long])
+                                    .setText([name])  
+                                    .addTo(map);
+                                }
                             </script>
-
-                            <li>
-                                <div>
-                                    <input type="checkbox" id=<%= station.id%> class="accordion__input">
-                                    <label for=<%= station.id%> class="accordion__label"><%= station.name%></label>
-                                    <div class="accordion__content">
-                                    <h4><%=station.name%></h4>
-                                    <p>Docked Bike Count: <%=station.docked_bikes.count%></p>
-                                    <p><%=(station.capacity - station.docked_bikes.count)%> Open Slots </p>
-                                    <%= link_to "Return Bike", station_return_path(id: station.id), class: "btn btn-success", style: "background-color: #9698fc; color: white; border-radius: 5px; padding: 5px 10px; justify-content: center; margin: 5px 0px;"%>
-                                    </div>
-                                </div>
-                            </li>
+        
                         <% end %>
                     <% end %>
                 </ul>
@@ -69,7 +78,8 @@
             </div>
             </div>
         </div>
-
+        
+        
     
     </body>
 </html>

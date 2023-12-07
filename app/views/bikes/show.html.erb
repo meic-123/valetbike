@@ -1,3 +1,5 @@
+<h1>Are you sure you want to rent this bike?</h1>
+
 <h1><b>Bike ID: </b> <%= @bike.identifier %></h1>
 <h1><b>Current Station: </b> <%= @bike.avail? ? "Docked (#{@bike.current_station.address})" : "In use" %></h1>
 <% if @bike.avail %>

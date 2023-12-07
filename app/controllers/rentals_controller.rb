@@ -21,6 +21,8 @@ class RentalsController < ApplicationController
     @bike.avail = false
     @bike.current_station_id = 0
     @bike.save
+    range = [*'0'..'9',*'A'..'Z',*'a'..'z']
+    @code = Array.new(5){ range.sample }.join
     end
     
   end
