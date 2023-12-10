@@ -4,7 +4,10 @@ class RentalsController < ApplicationController
     if current_user.active_bike != nil
       flash[:notice] = "Please return the current bike before renting"
       redirect_to action: "show", id: current_user.active_bike
-     
+    elsif !current_user.subscribed?
+      flash[:notice] = "Please subscribe before renting"
+      redirect_to pricing_path
+
       
     else 
     @bike = Bike.find(params[:id])
