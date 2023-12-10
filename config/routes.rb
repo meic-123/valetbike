@@ -22,11 +22,8 @@ Rails.application.routes.draw do
   # get 'stripe/checkout/cancel', to: 'stripe/checkout#cancel'
   # post 'stripe/billing_portal', to: 'stripe/billing_portal#create'
 
-  get 'past_trips/index'
+
   get 'active_trip/index'
-  get 'active_trip/return'
-  # get 'return', to: 'active_trip#return'
-  get 'payment_information/index'
   get '/account', to: 'account#index'
   # get 'membership', to: 'home_page#membership'
   get 'howitworks', to: 'home_page#howitworks'
