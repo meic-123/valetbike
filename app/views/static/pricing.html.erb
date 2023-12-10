@@ -10,23 +10,23 @@
     <div>
         <h3>Weekly pass </h3>
     <%= form_tag purchase_checkouts_path, method: :post, data: { turbo: false } do %>
-    <input type="hidden" name="price_id" value="price_1OJqUHICIuTjDUZ9JZI66sFc" />
-    <input type="submit" value="Subscribe for $50/week" class="px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" />
+    <input type="hidden" name="price_id" value="price_1OLfSREDz95u98gmvSG2WJ9K" />
+    <input type="submit" value="Subscribe for $30/week" class="px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" />
     <% end %>
     </div>
 
     <div>
         <h3>Monthly pass </h3>
     <%= form_tag purchase_checkouts_path, method: :post, data: { turbo: false } do %>
-    <input type="hidden" name="price_id" value="price_1OJqUHICIuTjDUZ9vZog2ZAC" />
-    <input type="submit" value="Subscribe for $30/month" class="px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" />
+    <input type="hidden" name="price_id" value="price_1OLfSREDz95u98gm5yA5tzjh" />
+    <input type="submit" value="Subscribe for $50/month" class="px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" />
     <% end %>
     </div>
 
     <div>
         <h3>Daily pass </h3>
     <%= form_tag purchase_checkouts_path, method: :post, data: { turbo: false } do %>
-    <input type="hidden" name="price_id" value="price_1OJqUHICIuTjDUZ9AZhQ5yF2" />
+    <input type="hidden" name="price_id" value="price_1OLfSREDz95u98gmxOLO5Rb1" />
     <input type="submit" value="Subscribe for $10/day" class="px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" />
     <% end %>
     </div>
@@ -40,12 +40,12 @@
     <% else %>
     <div>
         <h3>Weekly pass </h3>
-    <%= link_to "Subscribe for $50/week", new_user_session_path, class: "px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" %>
+    <%= link_to "Subscribe for $30/week", new_user_session_path, class: "px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" %>
     </div>
     
     <div>
         <h3>Monthly pass </h3>
-        <%= link_to "Subscribe for $30/month", new_user_session_path, class: "px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" %>
+        <%= link_to "Subscribe for $50/month", new_user_session_path, class: "px-3 py-4 bg-teal-600 hover:bg-teal-700 block no-underline w-full text-center rounded font-bold text-white shadow-sm cursor-pointer" %>
     </div>
     <div>
         <h3>Daily pass </h3>

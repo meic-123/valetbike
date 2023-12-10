@@ -3,7 +3,7 @@ class WebhooksController < ApplicationController
     def create 
         payload = request.body.read
         signature_header = request.env['HTTP_STRIPE_SIGNATURE']
-        endpoint_secret = "whsec_935f492c4539c7d282d4434681c7779d4c03015167b73a8c092d10f17f7ae978"
+        endpoint_secret = "whsec_b0c4e430a22d74d0e0656fb84172e5336a0ed759aa99f111b329c341871ecffa"
         event = nil 
 
         begin 
@@ -31,7 +31,7 @@ class WebhooksController < ApplicationController
             return unless event.data.object.subscription.present?
             # continue to provision subscription when payment is made 
             stripe_subscription = Stripe::Subscription.retrieve(event.data.object.subscription)
-            subscription = Membership.find_by(subscription_id: stripe_subscription)
+            subscription = Membership.find_by(subscription_id: stripe_subscription.id)
 
             subscription.update(
                 current_period_start: Time.at(stripe_subscription.current_period_start).to_datetime,
