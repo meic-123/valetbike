@@ -9,3 +9,10 @@
 <div>
 <a class="button" href="/users/edit">Edit your personal information</a>
 </div>
+<br>
+<% if current_user.subscribed? %>
+<div class="button">
+
+  <%= button_to "Manage billing", billings_path, data: { turbo: false } %>
+  </div>
+<% end %>
