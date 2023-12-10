@@ -217,4 +217,10 @@ justify-content: center
 
 .dropdown:hover .dropdown-content {
   display: block;
+  text-decoration: underline; 
 }
+
+.dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+}
+

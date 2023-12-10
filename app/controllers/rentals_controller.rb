@@ -4,10 +4,10 @@ class RentalsController < ApplicationController
     if current_user.active_bike != nil
       flash[:notice] = "Please return the current bike before renting"
       redirect_to action: "show", id: current_user.active_bike
-     
     elsif !current_user.subscribed?
       flash[:notice] = "Please subscribe before renting"
       redirect_to pricing_path
+
       
     else 
     @bike = Bike.find(params[:id])
@@ -23,7 +23,7 @@ class RentalsController < ApplicationController
     @rental.save
 
     @bike.avail = false
-    @bike.current_station_id = 0
+    @bike.current_station_id = nil
     @bike.save
     range = [*'0'..'9',*'A'..'Z',*'a'..'z']
     @code = Array.new(5){ range.sample }.join
