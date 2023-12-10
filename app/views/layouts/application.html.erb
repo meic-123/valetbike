@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
     <title>ValetBike</title>
   </head>
@@ -50,14 +51,17 @@
           <li><%= link_to "Membership Plans", pricing_path, class: "btn btn-primary" %></li>
             
           
-          <div class="w3-dropdown-hover">
+          <div class="dropdown">
             <% if user_signed_in? %>
-              <button class="w3-button">Account</button>
-              <div class="w3-dropdown-content w3-bar-block w3-card-4">
+              <button class="dropbtn" style = "float:right">Account
+                <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
                 <%= link_to "Manage Account", "/account", class: "btn btn-primary" %>
-                <%= button_to "Sign out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>              </div>
+                <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>              
+              </div>
             <% else %>
-              <%= link_to "Sign in", new_user_session_path, class: "btn btn-success" %>
+              <%= link_to "Sign In", new_user_session_path, class: "btn btn-success" %>
             <% end %>
           </div>
 
