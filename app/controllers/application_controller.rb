@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
 
     private 
     def set_stripe_key
-      Stripe.api_key = "sk_test_51OGO4mICIuTjDUZ9x5GSZ4azSYOs3xQFH2Q0Ss7eW8vzYanECyFkP0BZmOSRDyhjFsZKSPvDyGu1htNtCjHNEaq200s9Dmp7UQ"
+      Stripe.api_key = "sk_test_51OLfQMEDz95u98gmIuHw0Ky4iTAh900Qb9m5AqdLKIQNB7EB0XRWNQv3VNup57XYe9LviXHBIWsp6Ygx4Z0q6tDM00unqe36gf"
     end 
 end

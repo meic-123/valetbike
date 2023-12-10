@@ -21,10 +21,10 @@
 
     mapboxgl.accessToken = 'pk.eyJ1Ijoic2FpeWF0aHVyYWkiLCJhIjoiY2xwMDdpdWZuMDQwejJqbGU5dmIyYWN0dCJ9.2L9gQhZh6Kz-dPjXCmqwMg';
     var map = new mapboxgl.Map({
-    container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/streets-v12', // style URL
-    center: [-72.64, 42.325], // starting position [lng, lat]
-    zoom: 13.5 // starting zoom
+    container: 'map', 
+    style: 'mapbox://styles/mapbox/outdoors-v12', 
+    center: [-72.64, 42.325], 
+    zoom: 13.5 
     });
 
     </script>
@@ -43,8 +43,8 @@
                         <label for=<%= station.id%> class="accordion__label" onclick= "yolo('<%=station.name%>', '<%= station.longitude%>', '<%= station.latitude %>', '<%=station.address%>')"><%= station.name%></label>
                         <div class="accordion__content">
                             <h4><%=station.name%></h4>
-                            <p>Docked Bike Count: <%=station.docked_bikes.count%></p>
-                            <p><%=(station.capacity - station.docked_bikes.count)%> Open Slots </p>
+                            <p>Docked Bike Count: <%=station.bikenum%></p>
+                            <p><%=(station.capacity - station.bikenum)%> Open Slots </p>
                             <%= link_to "Rent a Bike", station_path(station), class: "btn btn-success", style: "background-color: #9698fc; color: white; border-radius: 5px; padding: 5px 10px;" %>
                         </div>
                     </div>
