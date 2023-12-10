@@ -6,7 +6,7 @@ class StationsController < ApplicationController
 
   def show
     @station = Station.find(params[:id])
-    @curr_bikes = Bike.where(current_station_id: @station.identifier)
+    @curr_bikes = Bike.where(current_station_id: @station.id, avail: true)
   end
 
   def return 
@@ -15,7 +15,7 @@ class StationsController < ApplicationController
     @curr_station = Station.find(params[:id])
 
     @curr_bike.avail = true
-    @curr_bike.current_station_id = @curr_station.identifier
+    @curr_bike.current_station_id = @curr_station.id
     @curr_bike.save 
     @curr_station.save
 
