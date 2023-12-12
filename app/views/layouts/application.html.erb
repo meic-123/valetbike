@@ -12,6 +12,7 @@
     <%= javascript_include_tag 'https://js.stripe.com/v3/', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
+
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
     <style>
       .dropbtn {
@@ -101,6 +102,7 @@
           <li><%= link_to "Membership Plans", pricing_path, class: "btn btn-primary", style: "font-size: 14pt"%></li>
             
           
+
           <li id="signin-signout-btn">
             <% if user_signed_in? %>
               <!-- Dropdown content for signed-in users -->
@@ -114,6 +116,7 @@
               </div>
             <% else %>
               <%= button_to "Sign in", new_user_session_path, class: "btn btn-success", id: "signin-btn" %>
+
             <% end %>
           </li>
 
