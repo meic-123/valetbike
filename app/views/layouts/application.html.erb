@@ -12,16 +12,67 @@
     <%= javascript_include_tag 'https://js.stripe.com/v3/', 'data-turbolinks-track': 'reload' %>
     <link href="https://fonts.googleapis.com/css?family=Rubik:400,500,700" rel="stylesheet" type="text/css">
     <link href="/favicon.ico" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js'></script>
+    <style>
+      .dropbtn {
+        background-color: #9698fc;
+        color: white;
+        padding: 0px;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        z-index: 10;
+
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        right: 0;
+        padding: 0px;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 10;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 0px;
+        text-decoration: none;
+        font-size: 10pt;
+        display: block;
+        z-index: 10;
+
+      }
+
+      .dropdown-content .word {
+        color: black;
+        padding: 0px;
+        text-decoration: none;
+        font-size: 10pt;
+        display: block;
+        z-index: 10;
+
+      }
+
+      .dropdown-content a:hover {background-color: #f1f1f1;}
+      .dropdown:hover .dropdown-content {display: block;}
+      .dropdown:hover .dropbtn {background-color: #a9abf2;}
+    </style>
     <title>ValetBike</title>
   </head>
   <body>
     <div id="site-container" class="flexbox vertical stretch flex-1">
 
     <!-- Common header -->
-    <header class="flex justify-between items-center p-4 bg-gray-800 text-white">
+    <header class="flex justify-between items-center header" style = "height: 110px;">
 
       <!-- Logo Placeholder Button -->
       <div>
@@ -32,38 +83,42 @@
     
       <!-- Navigation Links -->
       <nav>
-        <ul class="flex space-x-4">
+        <ul>
         
-          <li><%= link_to "Home", "/", class: "btn btn-primary" %></li>
-          <li><%= link_to "About", "/about", class: "btn btn-primary" %></li>
-          <li><%= link_to "How it Works", "/howitworks", class: "btn btn-primary" %></li>
+          <li><%= link_to "Home", "/", class: "btn btn-primary", style: "font-size: 14pt"%></li>
+          <li><%= link_to "About", "/about", class: "btn btn-primary", style: "font-size: 14pt"%></li>
+          <li><%= link_to "How it Works", "/howitworks", class: "btn btn-primary", style: "font-size: 14pt"%></li>
           <li>
             <% if user_signed_in? %> 
               <% if current_user.active_bike.nil? %> 
-                <%= link_to "Rent A Bike", "/rent_map", class: "btn btn-primary" %>
+                <%= link_to "Rent A Bike", "/rent_map", class: "btn btn-primary", style: "font-size: 14pt"%>
               <% else %>
-                <%= link_to "Return Bike", "/return_map", class: "btn btn-primary" %>
+                <%= link_to "Return Bike", "/return_map", class: "btn btn-primary", style: "font-size: 14pt"%>
               <% end %>
             <% else %>
-              <%= link_to "Map", "/base_map", class: "btn btn-primary" %>
+              <%= link_to "Map", "/base_map", class: "btn btn-primary", style: "font-size: 14pt"%>
             <% end %>
           </li>
-          <li><%= link_to "Membership Plans", pricing_path, class: "btn btn-primary" %></li>
+          <li><%= link_to "Membership Plans", pricing_path, class: "btn btn-primary", style: "font-size: 14pt"%></li>
             
           
-          <div class="dropdown">
+
+          <li id="signin-signout-btn">
             <% if user_signed_in? %>
-              <button class="dropbtn" style = "float:right">Account
-                <i class="fa fa-caret-down"></i>
-              </button>
-              <div class="dropdown-content">
-                <%= link_to "Manage Account", "/account", class: "btn btn-primary" %>
-                <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>              
+              <!-- Dropdown content for signed-in users -->
+              <div class="dropdown">
+                <button class="dropbtn" style= "font-size: 14pt">Account</button>
+                <div class="dropdown-content">
+                  <%= link_to "Manage Account", "/account", style: "text-align: center;" "font-size:9pt" 
+%>
+                  <%= button_to "Sign out", destroy_user_session_path, method: :delete , class: "dropdown-content", style: "font-size: 9pt;" "color: black"%>
+                </div>
               </div>
             <% else %>
-              <%= link_to "Sign In", new_user_session_path, class: "btn btn-success" %>
+              <%= button_to "Sign in", new_user_session_path, class: "btn btn-success", id: "signin-btn" %>
+
             <% end %>
-          </div>
+          </li>
 
         </ul>
       </nav>
