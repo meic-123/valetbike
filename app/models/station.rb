@@ -12,5 +12,5 @@ class Station < ApplicationRecord
     docked_bikes.where(avail: 'true').count
   end 
 
-
+   
 end
